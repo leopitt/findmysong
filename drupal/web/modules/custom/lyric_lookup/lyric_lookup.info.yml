@@ -1,0 +1,5 @@
+name: 'Lyric lookup'
+type: module
+description: 'Search for a lyric in songs.'
+core: 8.x
+package: 'Custom'
