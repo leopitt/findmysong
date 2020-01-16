@@ -1,0 +1,16 @@
+
+lyric_lookup.default_controller_lookup:
+  path: '/lyric-lookup/results/{name}'
+  defaults:
+    _controller: '\Drupal\lyric_lookup\Controller\DefaultController::lookup'
+    _title_callback: '\Drupal\lyric_lookup\Controller\DefaultController::getTitle'
+    _title: 'Find My Song'
+  requirements:
+    _permission: 'access content'
+lyric_lookup.default_form:
+  path: '/lyric-lookup/search'
+  defaults:
+    _form: '\Drupal\lyric_lookup\Form\DefaultForm'
+    _title: 'DefaultForm'
+  requirements:
+    _access: 'TRUE'

@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains lyric_lookup.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function lyric_lookup_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the lyric_lookup module.
+    case 'help.page.lyric_lookup':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Search for a lyric in songs.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
