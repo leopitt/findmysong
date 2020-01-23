@@ -11,6 +11,6 @@ lyric_lookup.default_form:
   path: '/lyric-lookup/search'
   defaults:
     _form: '\Drupal\lyric_lookup\Form\DefaultForm'
-    _title: 'DefaultForm'
+    _title: 'Find My Song'
   requirements:
     _access: 'TRUE'
