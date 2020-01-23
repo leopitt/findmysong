@@ -3111,17 +3111,17 @@
     },
     {
         "name": "symfony/config",
-        "version": "v3.4.36",
-        "version_normalized": "3.4.36.0",
+        "version": "v3.4.37",
+        "version_normalized": "3.4.37.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/config.git",
-            "reference": "a599a867d0e4a07c342b5f1e656b3915a540ddbe"
+            "reference": "6abc18b2a97f63508d23929bbb2ae65aaa07bace"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/config/zipball/a599a867d0e4a07c342b5f1e656b3915a540ddbe",
-            "reference": "a599a867d0e4a07c342b5f1e656b3915a540ddbe",
+            "url": "https://api.github.com/repos/symfony/config/zipball/6abc18b2a97f63508d23929bbb2ae65aaa07bace",
+            "reference": "6abc18b2a97f63508d23929bbb2ae65aaa07bace",
             "shasum": ""
         },
         "require": {
@@ -3142,7 +3142,7 @@
         "suggest": {
             "symfony/yaml": "To use the yaml reference dumper"
         },
-        "time": "2019-12-01T10:45:41+00:00",
+        "time": "2020-01-04T12:05:51+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3251,23 +3251,23 @@
     },
     {
         "name": "symfony/css-selector",
-        "version": "v3.4.36",
-        "version_normalized": "3.4.36.0",
+        "version": "v3.4.37",
+        "version_normalized": "3.4.37.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/css-selector.git",
-            "reference": "f819f71ae3ba6f396b4c015bd5895de7d2f1f85f"
+            "reference": "e1b3e1a0621d6e48ee46092b4c7d8280f746b3c5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/css-selector/zipball/f819f71ae3ba6f396b4c015bd5895de7d2f1f85f",
-            "reference": "f819f71ae3ba6f396b4c015bd5895de7d2f1f85f",
+            "url": "https://api.github.com/repos/symfony/css-selector/zipball/e1b3e1a0621d6e48ee46092b4c7d8280f746b3c5",
+            "reference": "e1b3e1a0621d6e48ee46092b4c7d8280f746b3c5",
             "shasum": ""
         },
         "require": {
             "php": "^5.5.9|>=7.0.8"
         },
-        "time": "2019-10-01T11:57:37+00:00",
+        "time": "2020-01-01T11:03:25+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3437,17 +3437,17 @@
     },
     {
         "name": "symfony/dom-crawler",
-        "version": "v3.4.36",
-        "version_normalized": "3.4.36.0",
+        "version": "v3.4.37",
+        "version_normalized": "3.4.37.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/dom-crawler.git",
-            "reference": "6bcffd2eabc4ca087faaaf54e26c8ff3a40284f3"
+            "reference": "c6fcc96c530ef18dcb4e605e3e9a97c483a160e6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/6bcffd2eabc4ca087faaaf54e26c8ff3a40284f3",
-            "reference": "6bcffd2eabc4ca087faaaf54e26c8ff3a40284f3",
+            "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/c6fcc96c530ef18dcb4e605e3e9a97c483a160e6",
+            "reference": "c6fcc96c530ef18dcb4e605e3e9a97c483a160e6",
             "shasum": ""
         },
         "require": {
@@ -3461,7 +3461,7 @@
         "suggest": {
             "symfony/css-selector": ""
         },
-        "time": "2019-10-24T15:33:53+00:00",
+        "time": "2020-01-01T11:03:25+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3561,24 +3561,24 @@
     },
     {
         "name": "symfony/filesystem",
-        "version": "v3.4.36",
-        "version_normalized": "3.4.36.0",
+        "version": "v3.4.37",
+        "version_normalized": "3.4.37.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/filesystem.git",
-            "reference": "00cdad0936d06fab136944bc2342b762b1c3a4a2"
+            "reference": "0a0d3b4bda11aa3a0464531c40e681e184e75628"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/filesystem/zipball/00cdad0936d06fab136944bc2342b762b1c3a4a2",
-            "reference": "00cdad0936d06fab136944bc2342b762b1c3a4a2",
+            "url": "https://api.github.com/repos/symfony/filesystem/zipball/0a0d3b4bda11aa3a0464531c40e681e184e75628",
+            "reference": "0a0d3b4bda11aa3a0464531c40e681e184e75628",
             "shasum": ""
         },
         "require": {
             "php": "^5.5.9|>=7.0.8",
             "symfony/polyfill-ctype": "~1.8"
         },
-        "time": "2019-11-25T16:36:22+00:00",
+        "time": "2020-01-17T08:50:08+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -3613,23 +3613,23 @@
     },
     {
         "name": "symfony/finder",
-        "version": "v3.4.36",
-        "version_normalized": "3.4.36.0",
+        "version": "v3.4.37",
+        "version_normalized": "3.4.37.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/finder.git",
-            "reference": "290ae21279b37bfd287cdcce640d51204e84afdf"
+            "reference": "a90a9d3b9f458a5cdeabfa4090b20c000ca3962f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/finder/zipball/290ae21279b37bfd287cdcce640d51204e84afdf",
-            "reference": "290ae21279b37bfd287cdcce640d51204e84afdf",
+            "url": "https://api.github.com/repos/symfony/finder/zipball/a90a9d3b9f458a5cdeabfa4090b20c000ca3962f",
+            "reference": "a90a9d3b9f458a5cdeabfa4090b20c000ca3962f",
             "shasum": ""
         },
         "require": {
             "php": "^5.5.9|>=7.0.8"
         },
-        "time": "2019-11-17T21:55:15+00:00",
+        "time": "2020-01-01T11:03:25+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -4659,17 +4659,17 @@
     },
     {
         "name": "symfony/var-dumper",
-        "version": "v4.4.2",
-        "version_normalized": "4.4.2.0",
+        "version": "v4.4.3",
+        "version_normalized": "4.4.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/var-dumper.git",
-            "reference": "be330f919bdb395d1e0c3f2bfb8948512d6bdd99"
+            "reference": "7cfa470bc3b1887a7b2a47c0a702a84ad614fa92"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/be330f919bdb395d1e0c3f2bfb8948512d6bdd99",
-            "reference": "be330f919bdb395d1e0c3f2bfb8948512d6bdd99",
+            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/7cfa470bc3b1887a7b2a47c0a702a84ad614fa92",
+            "reference": "7cfa470bc3b1887a7b2a47c0a702a84ad614fa92",
             "shasum": ""
         },
         "require": {
@@ -4692,7 +4692,7 @@
             "ext-intl": "To show region name in time zone dump",
             "symfony/console": "To use the ServerDumpCommand and/or the bin/var-dump-server script"
         },
-        "time": "2019-12-18T13:41:29+00:00",
+        "time": "2020-01-04T13:00:46+00:00",
         "bin": [
             "Resources/bin/var-dump-server"
         ],

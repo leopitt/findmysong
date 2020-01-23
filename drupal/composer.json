@@ -8,6 +8,11 @@
         "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
         "chat": "https://www.drupal.org/node/314178"
     },
+    "config": {
+        "platform": {
+            "php": "7.0.33"
+        }
+    },
     "repositories": [
         {
             "type": "composer",
