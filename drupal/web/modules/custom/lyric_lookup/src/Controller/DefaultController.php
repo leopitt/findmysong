@@ -3,16 +3,32 @@
 namespace Drupal\lyric_lookup\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Url;
 
 /**
  * Class DefaultController.
  */
 class DefaultController extends ControllerBase {
 
-  // http://api.musixmatch.com/ws/1.1/track.search?apikey=3970fb266be315182edbf920ae5efc8c&q_lyric=leo
+  /**
+   * API Key.
+   *
+   * E.g. http://api.musixmatch.com/ws/1.1/track.search?apikey=3970fb266be315182edbf920ae5efc8c&q_lyric=leo.
+   *
+   * @var string
+   *   public api key.
+   */
+  private $apiKey = '3970fb266be315182edbf920ae5efc8c';
 
-  private $api_key = '3970fb266be315182edbf920ae5efc8c';
-  private $api_url = 'http://api.musixmatch.com/ws/1.1/';
+  /**
+   * API URL.
+   *
+   * See http://api.musixmatch.com/.
+   *
+   * @var string
+   *   public api key.
+   */
+  private $apiUrl = 'http://api.musixmatch.com/ws/1.1/';
 
   /**
    * Returns a page title.
@@ -40,12 +56,12 @@ class DefaultController extends ControllerBase {
       $output = [
         'summary' => [
           '#type' => 'markup',
-          '#markup' => '<p>' . $header['available'] . ' tracks found.</p>',
+          '#markup' => $this->t('<p>@number tracks found.</p>', ['@number' => number_format($header['available'])]),
         ],
       ];
 
       if (count($track_list) > 0) {
-        $header = ['Title','Artist'];
+        $header = ['Title', 'Artist'];
         $rows = [];
 
         foreach ($track_list as $track_list_item) {
@@ -58,7 +74,7 @@ class DefaultController extends ControllerBase {
 
           $output['tracks'][] = [
             '#type' => 'markup',
-            '#markup' => '<pre> ' . print_r($track, TRUE)  . '</pre>',
+            '#markup' => '<pre> ' . print_r($track, TRUE) . '</pre>',
           ];
         }
 
@@ -69,7 +85,8 @@ class DefaultController extends ControllerBase {
         ];
       }
 
-      $search_url = \Drupal\Core\Url::fromRoute('lyric_lookup.default_form')->toString();
+      $search_url = Url::fromRoute('lyric_lookup.default_form')->toString();
+
       $output['actions'] = [
         '#type' => 'markup',
         '#markup' => '<p><a href="' . $search_url . '">Search again</a></p>',
