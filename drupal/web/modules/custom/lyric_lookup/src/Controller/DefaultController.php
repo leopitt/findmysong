@@ -2,6 +2,7 @@
 
 namespace Drupal\lyric_lookup\Controller;
 
+use Drupal\Core\Config;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 
@@ -9,16 +10,6 @@ use Drupal\Core\Url;
  * Class DefaultController.
  */
 class DefaultController extends ControllerBase {
-
-  /**
-   * API Key.
-   *
-   * E.g. http://api.musixmatch.com/ws/1.1/track.search?apikey=3970fb266be315182edbf920ae5efc8c&q_lyric=leo.
-   *
-   * @var string
-   *   public api key.
-   */
-  private $apiKey = '3970fb266be315182edbf920ae5efc8c';
 
   /**
    * API URL.
@@ -48,7 +39,7 @@ class DefaultController extends ControllerBase {
     $query = strtr('@basetrack.search?apikey=@key&q_lyrics=@name&s_track_rating=@sort&f_lyrics_language=@lang',
       [
         '@base' => $this->apiUrl,
-        '@key' => $this->apiKey,
+        '@key' => \Drupal::config('lyric_lookup.config')->get('musixmatch_api_key'),
         '@name' => $name,
         '@sort' => 'DESC',
         '@lang' => 'en',
