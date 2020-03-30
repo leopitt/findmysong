@@ -44,8 +44,20 @@ class DefaultController extends ControllerBase {
    *   Return Hello string.
    */
   public function lookup($name) {
-    // Query the api.
-    $data = file_get_contents($this->api_url . 'track.search?apikey=' . $this->api_key . '&q_lyrics=' . $name . '&s_track_rating=DESC&f_lyrics_language=en');
+    $client = \Drupal::httpClient();
+    $query = strtr('@basetrack.search?apikey=@key&q_lyrics=@name&s_track_rating=@sort&f_lyrics_language=@lang',
+      [
+        '@base' => $this->apiUrl,
+        '@key' => $this->apiKey,
+        '@name' => $name,
+        '@sort' => 'DESC',
+        '@lang' => 'en',
+      ]
+    );
+
+    $response = $client->get($query);
+
+    $data = $response->getBody();
     $json = json_decode($data, TRUE);
 
     if ($json && $json['message']['header']['status_code'] == 200) {

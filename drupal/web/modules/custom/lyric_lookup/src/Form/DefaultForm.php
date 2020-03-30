@@ -52,7 +52,7 @@ class DefaultForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
-    $name = $values['name'];
+    $name = strtolower($values['name']);
     $url = \Drupal\Core\Url::fromRoute('lyric_lookup.default_controller_lookup', ['name' => $name]);
     $redirect = new RedirectResponse($url->toString());
     $redirect->send();
