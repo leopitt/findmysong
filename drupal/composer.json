@@ -21,7 +21,8 @@
     ],
     "require": {
         "composer/installers": "^1.2",
-        "drupal/bootstrap": "^4.0",
+        "drupal/bootstrap_barrio": "^4.0",
+        "drupal/bootstrap_sass": "^1.0",
         "drupal/console": "~1.0",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
