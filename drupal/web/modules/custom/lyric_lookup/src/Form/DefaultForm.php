@@ -27,7 +27,7 @@ class DefaultForm extends FormBase {
       '#title' => $this->t('Name'),
       '#maxlength' => 64,
       '#size' => 64,
-      '#weight' => '0',
+      '#required' => TRUE,
     ];
     $form['submit'] = [
       '#type' => 'submit',
