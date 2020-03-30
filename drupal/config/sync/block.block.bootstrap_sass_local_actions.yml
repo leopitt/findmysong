@@ -1,13 +1,13 @@
-uuid: 2d603345-7630-4990-a43c-567b556dd4f9
+uuid: b219e98e-74c8-426e-a91e-1f7a3432adbd
 langcode: en
 status: false
 dependencies:
   theme:
-    - stark
+    - bootstrap_sass
 _core:
   default_config_hash: PffmQ-ABSz5tFjWmVsR7NesunDnEivvopnJnBjl8KNE
-id: stark_local_actions
-theme: stark
+id: bootstrap_sass_local_actions
+theme: bootstrap_sass
 region: content
 weight: -10
 provider: null

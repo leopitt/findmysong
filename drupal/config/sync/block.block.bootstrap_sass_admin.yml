@@ -1,4 +1,4 @@
-uuid: 5c56aacb-ecb2-4fd6-8f5a-8ce0857677ef
+uuid: 9385d0c7-3734-4c45-a3f1-b222750afd92
 langcode: en
 status: false
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - stark
+    - bootstrap_sass
 _core:
   default_config_hash: OFEDxrButmQ8Vac1kiVr1gtw6vYKuSJPr9cJQZVKCKg
-id: stark_admin
-theme: stark
+id: bootstrap_sass_admin
+theme: bootstrap_sass
 region: sidebar_first
 weight: 1
 provider: null

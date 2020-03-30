@@ -1,15 +1,15 @@
-uuid: afdfe6f0-e4f9-4b25-90a1-f56eb071b7d8
+uuid: 4ccfdafe-5af5-49a9-8291-033c2601bab7
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - stark
+    - bootstrap_sass
 _core:
   default_config_hash: fRKXNB91UxDvEMkzCR8ZBsawfC6Fqbme2gtobei3gu4
-id: stark_branding
-theme: stark
+id: bootstrap_sass_branding
+theme: bootstrap_sass
 region: header
 weight: 0
 provider: null
