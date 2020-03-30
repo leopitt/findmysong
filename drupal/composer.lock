@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "54d71527c8ea3878dbc05ae2b267b3d0",
+    "content-hash": "541735c8e74ecf245063627a68ace471",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -914,6 +914,62 @@
                 "php"
             ],
             "time": "2019-06-08T11:03:04+00:00"
+        },
+        {
+            "name": "drupal/bootstrap",
+            "version": "dev-4.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/bootstrap.git",
+                "reference": "72d9bb516a6a4bffd957bb7ad771b5890cf71493"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.x-dev",
+                    "datestamp": "1582046325",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Carver (markcarver)",
+                    "homepage": "https://www.drupal.org/u/markcarver",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "John McCormick (neardark)",
+                    "homepage": "https://www.drupal.org/u/neardark",
+                    "role": "Co-maintainer"
+                },
+                {
+                    "name": "Fabiano Sant'Ana (wundo)",
+                    "homepage": "https://www.drupal.org/u/wundo",
+                    "role": "Co-maintainer"
+                }
+            ],
+            "description": "Built to use Bootstrap, a sleek, intuitive, and powerful front-end framework for faster and easier web development.",
+            "homepage": "https://www.drupal.org/project/bootstrap",
+            "support": {
+                "source": "http://cgit.drupalcode.org/bootstrap",
+                "docs": "https://drupal-bootstrap.org",
+                "issues": "https://www.drupal.org/project/issues/bootstrap",
+                "irc": "irc://irc.freenode.org/drupal-bootstrap"
+            },
+            "time": "2020-02-18T17:18:14+00:00"
         },
         {
             "name": "drupal/console",
@@ -4841,6 +4897,49 @@
             ],
             "description": "A robust cross-platform utility for normalizing, comparing and modifying file paths.",
             "time": "2015-12-17T08:42:14+00:00"
+        },
+        {
+            "name": "zaporylie/composer-drupal-optimizations",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zaporylie/composer-drupal-optimizations.git",
+                "reference": "fb231d92adc862a2c9276bccbc90f684816dc75d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zaporylie/composer-drupal-optimizations/zipball/fb231d92adc862a2c9276bccbc90f684816dc75d",
+                "reference": "fb231d92adc862a2c9276bccbc90f684816dc75d",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1"
+            },
+            "require-dev": {
+                "composer/composer": "^1.6",
+                "phpunit/phpunit": "^6"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "zaporylie\\ComposerDrupalOptimizations\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "zaporylie\\ComposerDrupalOptimizations\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Piasecki",
+                    "email": "jakub@piaseccy.pl"
+                }
+            ],
+            "description": "Composer plugin to improve composer performance for Drupal projects",
+            "time": "2019-10-02T17:01:11+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",

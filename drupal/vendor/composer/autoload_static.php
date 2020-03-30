@@ -30,6 +30,10 @@ class ComposerStaticInitba366085c9089722454d52fae6b992f5
     );
 
     public static $prefixLengthsPsr4 = array (
+        'z' => 
+        array (
+            'zaporylie\\ComposerDrupalOptimizations\\' => 38,
+        ),
         'Z' => 
         array (
             'Zend\\Stdlib\\' => 12,
@@ -141,6 +145,10 @@ class ComposerStaticInitba366085c9089722454d52fae6b992f5
     );
 
     public static $prefixDirsPsr4 = array (
+        'zaporylie\\ComposerDrupalOptimizations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zaporylie/composer-drupal-optimizations/src',
+        ),
         'Zend\\Stdlib\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-stdlib/src',

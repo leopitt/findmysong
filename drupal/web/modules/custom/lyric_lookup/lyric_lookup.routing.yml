@@ -1,6 +1,6 @@
 
 lyric_lookup.default_controller_lookup:
-  path: '/lyric-lookup/results/{name}'
+  path: '/name/{name}'
   defaults:
     _controller: '\Drupal\lyric_lookup\Controller\DefaultController::lookup'
     _title_callback: '\Drupal\lyric_lookup\Controller\DefaultController::getTitle'
