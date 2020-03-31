@@ -1,6 +1,6 @@
 name: Find My Song
 type: theme
-description: 'Find My Song'
+description: 'Find My Song theme. Based on https://prist.marguerite.io/'
 package: Other
 core: 8.x
 libraries:
