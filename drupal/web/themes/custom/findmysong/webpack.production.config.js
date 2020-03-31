@@ -2,7 +2,7 @@ const path = require('path');
 const SassLintPlugin = require('sass-lint-webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const public_asset_path = '/themes/custom/THEMENAME/dist/';
+const public_asset_path = '/themes/custom/findmysong/dist/';
 let pathsToClean = ['dist'];
 
 module.exports = {

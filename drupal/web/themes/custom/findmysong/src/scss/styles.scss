@@ -3,6 +3,9 @@
  * Main theme styles file.
  */
 
+// Fonts
+@import 'fonts/inter';
+
 // Settings.
 @import 'settings/default-variables';
 
@@ -10,13 +13,13 @@
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 // Partials.
- @import 'partials/mixins';
+@import 'partials/mixins';
 
 // Overrides.
 // E.g. @import 'overrides';
 
 // Base.
-// E.g. @import 'base/base-form';
+// E.g. @import 'base/base';
 
 // Components.
 @import 'components/components';
