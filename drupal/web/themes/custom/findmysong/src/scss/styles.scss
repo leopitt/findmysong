@@ -1,0 +1,22 @@
+/**
+ * @file
+ * Main theme styles file.
+ */
+
+// Settings.
+@import 'settings/default-variables';
+
+// Bootstrap Framework.
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+// Partials.
+ @import 'partials/mixins';
+
+// Overrides.
+// E.g. @import 'overrides';
+
+// Base.
+// E.g. @import 'base/base-form';
+
+// Components.
+@import 'components/components';
