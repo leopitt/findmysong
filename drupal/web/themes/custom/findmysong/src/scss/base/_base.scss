@@ -1,0 +1,56 @@
+/**
+ * @file
+ * Base styles.
+ */
+
+html {
+  font-family: $font-family-sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 800;
+  line-height: 1.45;
+
+  @media (min-width: map-get($breakpoints, 'sm-min')) {
+    font-size: 2.25em;
+  }
+
+  @media (min-width: map-get($breakpoints, 'md-min')) {
+    font-size: 2.8em;
+  }
+}
+
+h2 {
+  font-size: 1.9em;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+h5 {
+  font-size: .95em;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 1.45rem;
+}
+
+h6 {
+  font-size: .9em;
+  font-weight: 500;
+  margin: 0;
+}
+
+p {
+  line-height: 1.9;
+}
+
+a {
+  &:hover {
+    cursor: pointer;
+  }
+}

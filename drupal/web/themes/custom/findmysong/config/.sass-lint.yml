@@ -97,7 +97,7 @@ rules:
     - allow-single-line: false
   clean-import-paths: 2
   empty-args: 0
-  hex-length: 2
+  hex-length: 0
   hex-notation: 2
   # indentation: 2
   leading-zero: 2

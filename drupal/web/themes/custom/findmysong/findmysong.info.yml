@@ -12,3 +12,8 @@ regions:
   header: Header
   content: Content
   footer: Footer
+
+component-libraries:
+  components:
+    paths:
+      - dist/components
