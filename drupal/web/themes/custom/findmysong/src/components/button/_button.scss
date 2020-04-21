@@ -1,0 +1,38 @@
+/**
+ * @file
+ * Button.
+ */
+
+.button {
+  background: map-get($colors, 'blue400');
+  border: 0;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: map-get($colors, 'white');
+  font-size: 1em;
+  font-weight: 600;
+  outline: none;
+  padding: .8em 1.8em;
+  position: relative;
+
+  @media (min-width: map-get($breakpoints, 'sm-min')) {
+    font-size: 1rem;
+    padding: 1em 2em;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, map-get($colors, 'pink400') 0%, map-get($colors, 'purple400') 100%);
+    cursor: pointer;
+  }
+
+  &--secondary {
+    background: map-get($colors, 'blue200');
+    color: map-get($colors, 'blue600');
+    font-size: .95rem;
+    padding: .95em 1.8em;
+
+    &:hover {
+      background: map-get($colors, 'blue300');
+    }
+  }
+}

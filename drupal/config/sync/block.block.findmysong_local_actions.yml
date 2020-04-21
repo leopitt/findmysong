@@ -1,0 +1,20 @@
+uuid: 4de342b9-ca7f-45fe-a53c-5e57f323b3bc
+langcode: en
+status: false
+dependencies:
+  theme:
+    - findmysong
+_core:
+  default_config_hash: PffmQ-ABSz5tFjWmVsR7NesunDnEivvopnJnBjl8KNE
+id: findmysong_local_actions
+theme: findmysong
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

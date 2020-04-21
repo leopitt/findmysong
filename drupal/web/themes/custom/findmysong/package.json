@@ -10,18 +10,17 @@
   "license": "MIT",
   "repository": "NA",
   "devDependencies": {
-    "bootstrap-sass": "^3.4.0",
-    "bootstrap-select": "^1.13.5",
     "clean-webpack-plugin": "^1.0.1",
     "css-loader": "^2.1.0",
     "file-loader": "^3.0.1",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "popper.js": "^1.16.1",
     "sass-lint": "^1.12.1",
     "sass-lint-webpack": "^1.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.29.0",
+    "webpack": "^4.43.0",
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {}

@@ -1,5 +1,3 @@
-// Import Bootstrap SASS rules.
-import 'bootstrap-sass';
 // Our custom SASS.
 import './scss/styles.scss';
 

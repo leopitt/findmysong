@@ -7,10 +7,7 @@
 @import 'fonts/inter';
 
 // Settings.
-@import 'settings/default-variables';
-
-// Bootstrap Framework.
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'settings/variables';
 
 // Partials.
 @import 'partials/mixins';
@@ -19,7 +16,7 @@
 // E.g. @import 'overrides';
 
 // Base.
-// E.g. @import 'base/base';
+@import 'base/base';
 
 // Components.
 @import 'components/components';
