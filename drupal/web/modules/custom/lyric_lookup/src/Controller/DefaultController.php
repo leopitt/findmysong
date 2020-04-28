@@ -5,6 +5,7 @@ namespace Drupal\lyric_lookup\Controller;
 use Drupal\Core\Config;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
+use Drupal\lyric_lookup\LyricLookupService;
 
 /**
  * Class DefaultController.
@@ -35,69 +36,41 @@ class DefaultController extends ControllerBase {
    *   Return Hello string.
    */
   public function lookup($name) {
-    $client = \Drupal::httpClient();
-    $query = strtr('@basetrack.search?apikey=@key&q_lyrics=@name&s_track_rating=@sort&f_lyrics_language=@lang',
-      [
-        '@base' => $this->apiUrl,
-        '@key' => \Drupal::config('lyric_lookup.config')->get('musixmatch_api_key'),
-        '@name' => $name,
-        '@sort' => 'DESC',
-        '@lang' => 'en',
-      ]
-    );
+    $track_list = LyricLookupService::lookup($name);
 
-    $response = $client->get($query);
+    if ($track_list && count($track_list) > 0) {
+      $header = ['Title', 'Artist'];
+      $rows = [];
 
-    $data = $response->getBody();
-    $json = json_decode($data, TRUE);
+      foreach ($track_list as $track_list_item) {
+        $track = $track_list_item['track'];
+        $track_id = $track['track_id'];
+        $track_name = $track['track_name'];
+        $track_artist = $track['artist_name'];
 
-    if ($json && $json['message']['header']['status_code'] == 200) {
+        $rows[] = [$track_name, $track_artist];
 
-      $header = $json['message']['header'];
-      $track_list = $json['message']['body']['track_list'];
-
-      $output = [
-        'summary' => [
+        $output['tracks'][] = [
           '#type' => 'markup',
-          '#markup' => $this->t('<p>@number tracks found.</p>', ['@number' => number_format($header['available'])]),
-        ],
-      ];
-
-      if (count($track_list) > 0) {
-        $header = ['Title', 'Artist'];
-        $rows = [];
-
-        foreach ($track_list as $track_list_item) {
-          $track = $track_list_item['track'];
-          $track_id = $track['track_id'];
-          $track_name = $track['track_name'];
-          $track_artist = $track['artist_name'];
-
-          $rows[] = [$track_name, $track_artist];
-
-          $output['tracks'][] = [
-            '#type' => 'markup',
-            '#markup' => '<pre> ' . print_r($track, TRUE) . '</pre>',
-          ];
-        }
-
-        $output['tracks'] = [
-          '#type' => 'table',
-          '#header' => $header,
-          '#rows' => $rows,
+          '#markup' => '<pre> ' . print_r($track, TRUE) . '</pre>',
         ];
       }
 
-      $search_url = Url::fromRoute('lyric_lookup.default_form')->toString();
-
-      $output['actions'] = [
-        '#type' => 'markup',
-        '#markup' => '<p><a href="' . $search_url . '">Search again</a></p>',
+      $output['tracks'] = [
+        '#type' => 'table',
+        '#header' => $header,
+        '#rows' => $rows,
       ];
-
-      return $output;
-
     }
+
+    $search_url = Url::fromRoute('lyric_lookup.default_form')->toString();
+
+    $output['actions'] = [
+      '#type' => 'markup',
+      '#markup' => '<p><a href="' . $search_url . '">Search again</a></p>',
+    ];
+
+    return $output;
   }
 
 }

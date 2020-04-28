@@ -29,6 +29,7 @@
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/http_client_manager": "^2.3",
+        "drupal/restui": "^1.0",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
