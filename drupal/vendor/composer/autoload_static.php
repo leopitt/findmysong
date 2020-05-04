@@ -98,6 +98,10 @@ class ComposerStaticInitba366085c9089722454d52fae6b992f5
         array (
             'Masterminds\\' => 12,
         ),
+        'L' => 
+        array (
+            'League\\OAuth2\\Client\\' => 21,
+        ),
         'J' => 
         array (
             'JakubOnderka\\PhpConsoleHighlighter\\' => 35,
@@ -320,6 +324,10 @@ class ComposerStaticInitba366085c9089722454d52fae6b992f5
         'Masterminds\\' => 
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
+        ),
+        'League\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/oauth2-client/src',
         ),
         'JakubOnderka\\PhpConsoleHighlighter\\' => 
         array (
