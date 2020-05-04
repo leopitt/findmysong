@@ -9,6 +9,7 @@ module:
   http_client_manager: 0
   lyric_lookup: 0
   node: 0
+  oauth2_client: 0
   page_cache: 0
   path_alias: 0
   rest: 0
