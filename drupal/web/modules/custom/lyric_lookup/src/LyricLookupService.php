@@ -61,15 +61,16 @@ class LyricLookupService implements LyricLookupServiceInterface {
 
         // Loop through track list and add Spotify links.
         if ($token) {
-          foreach ($track_list as $track) {
+          foreach ($track_list as $key => $val) {
             // Access Spotify API here.
             $spotify_api_url = 'https://api.spotify.com/v1/';
             $spotify_client = \Drupal::httpClient();
-            $query = strtr('@basesearch?q=@track&type=@type',
+            $query = strtr('@basesearch?q=@track&type=@type&limit=@limit',
               [
                 '@base' => $spotify_api_url,
-                '@track' => urlencode($track['track']['track_name']),
+                '@track' => urlencode($val['track']['track_name']),
                 '@type' => 'track',
+                '@limit' => 1,
               ]
             );
             $spotify_response = $spotify_client->get($query, ['headers' => [
@@ -78,7 +79,12 @@ class LyricLookupService implements LyricLookupServiceInterface {
             ]]);
             $spotify_data = $spotify_response->getBody();
             $spotify_json = json_decode($spotify_data, TRUE);
-            // var_dump($spotify_json);
+
+            // Add the Spotify track ID to the results.
+            if (isset($spotify_json['tracks']['items'][0]['id'])) {
+              $spotify_id = $spotify_json['tracks']['items'][0]['id'];
+              $track_list[$key]['track']['spotify_id'] = $spotify_id;
+            }
           }
         }
 
