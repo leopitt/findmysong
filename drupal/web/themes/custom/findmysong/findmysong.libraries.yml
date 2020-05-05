@@ -1,7 +1,0 @@
-global:
-   version: 1.0
-   css:
-    theme:
-      dist/index.bundle.css : {}
-   js:
-     dist/index.bundle.js : {}
