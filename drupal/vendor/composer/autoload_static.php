@@ -34,6 +34,10 @@ class ComposerStaticInitba366085c9089722454d52fae6b992f5
         array (
             'zaporylie\\ComposerDrupalOptimizations\\' => 38,
         ),
+        'c' => 
+        array (
+            'cweagans\\Composer\\' => 18,
+        ),
         'Z' => 
         array (
             'Zend\\Stdlib\\' => 12,
@@ -152,6 +156,10 @@ class ComposerStaticInitba366085c9089722454d52fae6b992f5
         'zaporylie\\ComposerDrupalOptimizations\\' => 
         array (
             0 => __DIR__ . '/..' . '/zaporylie/composer-drupal-optimizations/src',
+        ),
+        'cweagans\\Composer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cweagans/composer-patches/src',
         ),
         'Zend\\Stdlib\\' => 
         array (
