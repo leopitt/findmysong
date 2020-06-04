@@ -5,3 +5,9 @@ services:
   lyric_lookup.default:
     class: Drupal\lyric_lookup\LyricLookupService
     arguments: []
+  logger.channel.lyric_lookup:
+    parent: logger.channel_base
+    arguments: ['lyric_lookup']
+  lyric_lookup.spotify:
+    class: Drupal\lyric_lookup\SpotifyService
+    arguments: []

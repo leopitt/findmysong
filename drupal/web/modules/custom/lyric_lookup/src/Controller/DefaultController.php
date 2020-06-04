@@ -39,7 +39,7 @@ class DefaultController extends ControllerBase {
     $track_list = LyricLookupService::lookup($name);
 
     if ($track_list && count($track_list) > 0) {
-      $header = ['Title', 'Artist'];
+      $header = ['Title', 'Artist', 'Spotify ID'];
       $rows = [];
 
       foreach ($track_list as $track_list_item) {
@@ -47,8 +47,9 @@ class DefaultController extends ControllerBase {
         $track_id = $track['track_id'];
         $track_name = $track['track_name'];
         $track_artist = $track['artist_name'];
+        $spotify_id = $track['spotify_id'];
 
-        $rows[] = [$track_name, $track_artist];
+        $rows[] = [$track_name, $track_artist, $spotify_id];
 
         $output['tracks'][] = [
           '#type' => 'markup',
