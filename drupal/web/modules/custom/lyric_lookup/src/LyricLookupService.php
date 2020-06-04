@@ -4,6 +4,7 @@ namespace Drupal\lyric_lookup;
 
 use Drupal\Core\Config;
 use Drupal\Core\Url;
+use Drupal\lyric_lookup\SpotifyService;
 
 /**
  * Class LyricLookupService.
@@ -43,7 +44,6 @@ class LyricLookupService implements LyricLookupServiceInterface {
     $json = json_decode($data, TRUE);
 
     if ($json && $json['message']['header']['status_code'] == 200) {
-
       $header = $json['message']['header'];
       $track_list = $json['message']['body']['track_list'];
 
@@ -56,33 +56,15 @@ class LyricLookupService implements LyricLookupServiceInterface {
 
       if (count($track_list) > 0) {
         // Get Spotify API access token.
-        $access_token = \Drupal::service('oauth2_client.service')->getAccessToken('spotify');
-        $token = $access_token->getToken();
+        $spotify = new SpotifyService();
 
         // Loop through track list and add Spotify links.
-        if ($token) {
+        if ($spotify) {
           foreach ($track_list as $key => $val) {
-            // Access Spotify API here.
-            $spotify_api_url = 'https://api.spotify.com/v1/';
-            $spotify_client = \Drupal::httpClient();
-            $query = strtr('@basesearch?q=@track&type=@type&limit=@limit',
-              [
-                '@base' => $spotify_api_url,
-                '@track' => urlencode($val['track']['track_name']),
-                '@type' => 'track',
-                '@limit' => 1,
-              ]
-            );
-            $spotify_response = $spotify_client->get($query, ['headers' => [
-              'Authorization' => 'Bearer ' . $token,
-              'Accept' => 'application/json',
-            ]]);
-            $spotify_data = $spotify_response->getBody();
-            $spotify_json = json_decode($spotify_data, TRUE);
+            $spotify_id = $spotify->getTrackId($val['track']['track_name']);
 
             // Add the Spotify track ID to the results.
-            if (isset($spotify_json['tracks']['items'][0]['id'])) {
-              $spotify_id = $spotify_json['tracks']['items'][0]['id'];
+            if ($spotify_id) {
               $track_list[$key]['track']['spotify_id'] = $spotify_id;
             }
           }
