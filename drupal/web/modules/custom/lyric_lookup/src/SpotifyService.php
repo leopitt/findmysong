@@ -15,11 +15,6 @@ class SpotifyService implements SpotifyServiceInterface {
   public function __construct() {
     // Get Spotify API access token.
     $this->accessToken = \Drupal::service('oauth2_client.service')->getAccessToken('spotify');
-
-    // Refresh if necessary.
-    if (!$this->accessToken) {
-      $this->accessToken = \Drupal::service('oauth2_client.service')->getAccessToken('spotify');
-    }
   }
 
   /**

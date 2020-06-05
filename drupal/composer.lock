@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b944b6780fa8ffc04642839e6fab7187",
+    "content-hash": "214df50bb1125523a91312f46c2c927c",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1849,6 +1849,9 @@
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Don't try to use a refresh_token when refresh_token is blank or missing": "https://www.drupal.org/files/issues/2019-03-17/0001-Fall-back-to-getting-a-new-access-token-if-the-store.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

@@ -10,16 +10,19 @@ use Drupal\oauth2_client\Plugin\Oauth2Client\Oauth2ClientPluginBase;
  * See https://developer.spotify.com/documentation/general/guides/authorization-guide/
  *
  * @Oauth2Client(
- *   id = "spotify",
- *   name = @Translation("Spotify"),
- *   grant_type = "client_credentials",
+ *   authorization_uri = "https://accounts.spotify.com/authorize",
  *   client_id = "5e56e612d84e4cc1ad65618ba09321ab",
  *   client_secret = "2a6b1be636104e32a7abf0e96c957b1b",
- *   authorization_uri = "https://accounts.spotify.com/authorize",
- *   token_uri = "https://accounts.spotify.com/api/token",
+ *   grant_type = "authorization_code",
+ *   id = "spotify",
+ *   name = @Translation("Spotify"),
+ *   redirect_uri = "http://admin.findmysong.function-designing.co.uk/admin/reports/oauth2_client/client_tester/spotify",
  *   resource_owner_uri = "",
- *   scopes = "",
+ *   response_type = "code",
  *   scope_separator = " ",
+ *   scopes = "",
+ *   show_dialog = "false",
+ *   token_uri = "https://accounts.spotify.com/api/token",
  * )
  */
 class Spotify extends Oauth2ClientPluginBase {}
