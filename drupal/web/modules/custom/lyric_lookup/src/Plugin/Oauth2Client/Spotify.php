@@ -16,7 +16,7 @@ use Drupal\oauth2_client\Plugin\Oauth2Client\Oauth2ClientPluginBase;
  *   grant_type = "authorization_code",
  *   id = "spotify",
  *   name = @Translation("Spotify"),
- *   redirect_uri = "http://admin.findmysong.function-designing.co.uk/admin/reports/oauth2_client/client_tester/spotify",
+ *   redirect_uri = "http://admin.findmysong.function-designing.co.uk/",
  *   resource_owner_uri = "",
  *   response_type = "code",
  *   scope_separator = " ",
