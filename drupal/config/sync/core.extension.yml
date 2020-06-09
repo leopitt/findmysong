@@ -1,7 +1,6 @@
 module:
   block: 0
   breakpoint: 0
-  components: 0
   dblog: 0
   dynamic_page_cache: 0
   field: 0
