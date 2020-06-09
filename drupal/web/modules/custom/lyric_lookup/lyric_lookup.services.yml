@@ -11,3 +11,15 @@ services:
   lyric_lookup.spotify:
     class: Drupal\lyric_lookup\SpotifyService
     arguments: []
+  cache.lyric_lookup:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin }
+    factory: cache_factory:get
+    arguments: [lyric_lookup]
+  cache.spotify:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin }
+    factory: cache_factory:get
+    arguments: [spotify]
