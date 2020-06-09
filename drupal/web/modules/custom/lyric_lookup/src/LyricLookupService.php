@@ -2,21 +2,13 @@
 
 namespace Drupal\lyric_lookup;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Config;
-use Drupal\Core\Url;
-use Drupal\lyric_lookup\SpotifyService;
 
 /**
  * Class LyricLookupService.
  */
 class LyricLookupService implements LyricLookupServiceInterface {
-
-  /**
-   * Constructs a new LyricLookupService object.
-   */
-  public function __construct() {
-
-  }
 
   /**
    * Lookup.
@@ -25,56 +17,61 @@ class LyricLookupService implements LyricLookupServiceInterface {
    *   Return Hello string.
    */
   public static function lookup($name) {
-    // Call the MusixMatch API
-    $musixmatch_api_url = 'http://api.musixmatch.com/ws/1.1/';
-    $musixmatch_client = \Drupal::httpClient();
-    $query = strtr('@basetrack.search?apikey=@key&q_lyrics=@name&s_track_rating=@sort&f_lyrics_language=@lang',
-      [
-        '@base' => $musixmatch_api_url,
-        '@key' => \Drupal::config('lyric_lookup.config')->get('musixmatch_api_key'),
-        '@name' => $name,
-        '@sort' => 'DESC',
-        '@lang' => 'en',
-      ]
-    );
+    // Generate cache id.
+    $cid = 'lyric_lookup:name:' . Html::cleanCssIdentifier(strtolower($name));
 
-    $response = $musixmatch_client->get($query);
+    // Check for an entry in the cache.
+    if ($cache = \Drupal::cache('lyric_lookup')->get($cid)) {
+      return $cache->data;
+    }
+    else {
+      // Fetch from the MusixMatch API.
+      $musixmatch_api_url = 'http://api.musixmatch.com/ws/1.1/';
+      $musixmatch_client = \Drupal::httpClient();
+      $query = strtr('@basetrack.search?apikey=@key&q_lyrics=@name&s_track_rating=@sort&f_lyrics_language=@lang',
+        [
+          '@base' => $musixmatch_api_url,
+          '@key' => \Drupal::config('lyric_lookup.config')->get('musixmatch_api_key'),
+          '@name' => $name,
+          '@sort' => 'DESC',
+          '@lang' => 'en',
+        ]
+      );
 
-    $data = $response->getBody();
-    $json = json_decode($data, TRUE);
+      // Parse the response.
+      $response = $musixmatch_client->get($query);
+      $data = $response->getBody();
+      $json = json_decode($data, TRUE);
 
-    if ($json && $json['message']['header']['status_code'] == 200) {
-      $header = $json['message']['header'];
-      $track_list = $json['message']['body']['track_list'];
+      // Check we have a 200 response code.
+      if ($json && $json['message']['header']['status_code'] == 200) {
+        // Fetch the list of tracks.
+        $track_list = $json['message']['body']['track_list'];
 
-      $output = [
-        'summary' => [
-          '#type' => 'markup',
-          '#markup' => t('<p>@number tracks found.</p>', ['@number' => number_format($header['available'])]),
-        ],
-      ];
+        if (count($track_list) > 0) {
+          // Get spotify date for each track.
+          $spotify = new SpotifyService();
 
-      if (count($track_list) > 0) {
-        // Get Spotify API access token.
-        $spotify = new SpotifyService();
+          // Loop through track list and add Spotify links.
+          if ($spotify) {
+            foreach ($track_list as $key => $val) {
+              $spotify_id = $spotify->getTrackId($val['track']['track_name']);
 
-        // Loop through track list and add Spotify links.
-        if ($spotify) {
-          foreach ($track_list as $key => $val) {
-            $spotify_id = $spotify->getTrackId($val['track']['track_name']);
-
-            // Add the Spotify track ID to the results.
-            if ($spotify_id) {
-              $track_list[$key]['track']['spotify_id'] = $spotify_id;
+              // Add the Spotify track ID to the results.
+              if ($spotify_id) {
+                $track_list[$key]['track']['spotify_id'] = $spotify_id;
+              }
             }
           }
+
+          // Add to the cache and return.
+          \Drupal::cache('lyric_lookup')->set($cid, $track_list, strtotime('3 months'));
+          return $track_list;
         }
-
-        return $track_list;
       }
-
-      return NULL;
     }
+
+    return NULL;
   }
 
 }
