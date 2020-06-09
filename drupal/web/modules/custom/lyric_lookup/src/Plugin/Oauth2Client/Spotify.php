@@ -12,7 +12,7 @@ use Drupal\oauth2_client\Plugin\Oauth2Client\Oauth2ClientPluginBase;
  * @Oauth2Client(
  *   authorization_uri = "https://accounts.spotify.com/authorize",
  *   client_id = "013fc58693644d62a4dd959464daf06a",
- *   client_secret = "xxx",
+ *   client_secret = "placeholder_use_local_settings",
  *   grant_type = "authorization_code",
  *   id = "spotify",
  *   name = @Translation("Spotify"),
@@ -25,20 +25,14 @@ use Drupal\oauth2_client\Plugin\Oauth2Client\Oauth2ClientPluginBase;
 class Spotify extends Oauth2ClientPluginBase {
 
   /**
-   * {@inheritdoc}
+   * Override base class method to return a key from private settings.
    */
   public function getClientSecret() {
-    return '00ff46f2268a409191424e6217c4fde5';
+    return \Drupal::config('lyric_lookup.config')->get('spotify_api_secret');
   }
 
   /**
-   * Check that a key is defined when requested. Throw an exception if not.
-   *
-   * @param string $key
-   *   The key to check.
-   *
-   * @throws \Drupal\oauth2_client\Exception\Oauth2ClientPluginMissingKeyException
-   *   Thrown if the key being checked is not defined.
+   * {@inheritdoc}
    */
   private function checkKeyDefined($key) {
     if (!isset($this->pluginDefinition[$key])) {
