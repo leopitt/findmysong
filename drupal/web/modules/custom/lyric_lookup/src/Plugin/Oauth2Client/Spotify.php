@@ -11,7 +11,7 @@ use Drupal\oauth2_client\Plugin\Oauth2Client\Oauth2ClientPluginBase;
  *
  * @Oauth2Client(
  *   authorization_uri = "https://accounts.spotify.com/authorize",
- *   client_id = "013fc58693644d62a4dd959464daf06a",
+ *   client_id = "5e56e612d84e4cc1ad65618ba09321ab",
  *   client_secret = "placeholder_use_local_settings",
  *   grant_type = "authorization_code",
  *   id = "spotify",
