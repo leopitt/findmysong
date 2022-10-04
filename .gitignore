@@ -1,3 +1,6 @@
 .DS_Store
 logs
 drupal/vendor
+drupal/web/modules/contrib
+drupal/config/lyric_lookup.config.yml
+.docksal/db
