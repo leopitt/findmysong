@@ -23,3 +23,12 @@ lyric_lookup.config_form:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+lyric_lookup.config_form:
+  path: '/admin/config/lyric_lookup/config'
+  defaults:
+    _form: '\Drupal\lyric_lookup\Form\ConfigForm'
+    _title: 'ConfigForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
