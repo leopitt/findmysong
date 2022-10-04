@@ -66,6 +66,7 @@ class LyricLookupService implements LyricLookupServiceInterface {
 
       if ($debug) {
         \Drupal::logger('lyric_lookup')->notice('Musixmatch API response: @json.', ['@json' => print_r($json, TRUE)]);
+        \Drupal::logger('lyric_lookup')->error('Musixmatch API returned a @status status.', ['@status' => $json['message']['header']['status_code']]);
       }
 
       // Check we have a 200 response code.
@@ -74,11 +75,19 @@ class LyricLookupService implements LyricLookupServiceInterface {
         $track_list = $json['message']['body']['track_list'];
 
         if (count($track_list) > 0) {
+          if ($debug) {
+            \Drupal::logger('lyric_lookup')->error('Musixmatch API returned @count matches.', ['@count' => count($track_list)]);
+          }
+
           // Get spotify date for each track.
           $spotify = new SpotifyService();
 
           // Loop through track list and add Spotify links.
           if ($spotify) {
+            if ($debug) {
+              \Drupal::logger('lyric_lookup')->error('Fetched spotify links.');
+            }
+
             foreach ($track_list as $key => $val) {
               $spotify_id = $spotify->getTrackId($val['track']['track_name']);
 
@@ -93,9 +102,6 @@ class LyricLookupService implements LyricLookupServiceInterface {
           \Drupal::cache('lyric_lookup')->set($cid, $track_list, strtotime('3 months'));
           return $track_list;
         }
-      }
-      else {
-        \Drupal::logger('lyric_lookup')->error('Musixmatch API returned a @status status.', ['@status' => $json['message']['header']['status_code']]);
       }
     }
 
