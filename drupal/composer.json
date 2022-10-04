@@ -11,6 +11,14 @@
     "config": {
         "platform": {
             "php": "7.0.33"
+        },
+        "allow-plugins": {
+            "cweagans/composer-patches": true,
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "zaporylie/composer-drupal-optimizations": true,
+            "drupal/console-extend-plugin": true
         }
     },
     "repositories": [
@@ -26,12 +34,11 @@
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
+        "drupal/devel": "^4.2",
         "drupal/http_client_manager": "^2.3",
         "drupal/oauth2_client": "^2.0",
         "drupal/restui": "^1.0",
         "zaporylie/composer-drupal-optimizations": "^1.0"
-    },
-    "require-dev": {
     },
     "conflict": {
         "drupal/drupal": "*"
