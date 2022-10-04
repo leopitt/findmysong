@@ -1,3 +1,4 @@
 .DS_Store
 logs
 drupal/vendor
+drupal/config/lyric_lookup.config.yml
