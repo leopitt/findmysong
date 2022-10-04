@@ -16,14 +16,14 @@ class ConfigForm extends ConfigFormBase {
    *
    * @var \Drupal\lyric_lookup\LyricLookupServiceInterface
    */
-  protected $lyricLookupDefault;
+  protected $lyricLookupService;
 
   /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
     $instance = parent::create($container);
-    $instance->lyricLookupDefault = $container->get('lyric_lookup.default');
+    $instance->lyricLookupService = $container->get('lyric_lookup.default');
     return $instance;
   }
 
