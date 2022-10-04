@@ -17,14 +17,31 @@ class LyricLookupService implements LyricLookupServiceInterface {
    *   Return Hello string.
    */
   public static function lookup($name) {
+    // Load config.
+    $debug = FALSE;
+    if ($config = \Drupal::config('lyric_lookup.config')) {
+      $debug = $config->get('debug');
+    }
+
+    if ($debug) {
+      \Drupal::logger('lyric_lookup')->notice('Calling LyricLookupService::lookup(@name).', ['@name' => $name]);
+    }
+
     // Generate cache id.
     $cid = 'lyric_lookup:name:' . Html::cleanCssIdentifier(strtolower($name));
 
     // Check for an entry in the cache.
     if ($cache = \Drupal::cache('lyric_lookup')->get($cid)) {
+      if ($debug) {
+        \Drupal::logger('lyric_lookup')->notice('Fetching the name from the cache.');
+      }
       return $cache->data;
     }
     else {
+      if ($debug) {
+        \Drupal::logger('lyric_lookup')->notice('Fetching the name from the MusixMatch API.');
+      }
+
       // Fetch from the MusixMatch API.
       $musixmatch_api_url = 'http://api.musixmatch.com/ws/1.1/';
       $musixmatch_client = \Drupal::httpClient();
@@ -38,10 +55,18 @@ class LyricLookupService implements LyricLookupServiceInterface {
         ]
       );
 
+      if ($debug) {
+        \Drupal::logger('lyric_lookup')->notice('Musixmatch API query: @query.', ['@query' => $query]);
+      }
+
       // Parse the response.
       $response = $musixmatch_client->get($query);
       $data = $response->getBody();
       $json = json_decode($data, TRUE);
+
+      if ($debug) {
+        \Drupal::logger('lyric_lookup')->notice('Musixmatch API response: @json.', ['@json' => print_r($json, TRUE)]);
+      }
 
       // Check we have a 200 response code.
       if ($json && $json['message']['header']['status_code'] == 200) {
@@ -68,6 +93,9 @@ class LyricLookupService implements LyricLookupServiceInterface {
           \Drupal::cache('lyric_lookup')->set($cid, $track_list, strtotime('3 months'));
           return $track_list;
         }
+      }
+      else {
+        \Drupal::logger('lyric_lookup')->error('Musixmatch API returned a @status status.', ['@status' => $json['message']['header']['status_code']]);
       }
     }
 
