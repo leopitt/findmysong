@@ -18,7 +18,7 @@ lyric_lookup.config_form:
   path: '/admin/config/lyric-lookup/config'
   defaults:
     _form: '\Drupal\lyric_lookup\Form\ConfigForm'
-    _title: 'ConfigForm'
+    _title: 'Lyric Lookup config'
   requirements:
     _permission: 'access administration pages'
   options:
