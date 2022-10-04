@@ -15,8 +15,6 @@ use League\OAuth2\Client\Token\AccessToken;
  *
  * @Oauth2Client(
  *   authorization_uri = "https://accounts.spotify.com/authorize",
- *   client_id = "5e56e612d84e4cc1ad65618ba09321ab",
- *   client_secret = "placeholder_use_local_settings",
  *   grant_type = "authorization_code",
  *   id = "spotify",
  *   name = @Translation("Spotify"),
