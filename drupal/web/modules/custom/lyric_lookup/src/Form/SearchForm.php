@@ -7,9 +7,9 @@ use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * Class DefaultForm.
+ * Class SearchForm.
  */
-class DefaultForm extends FormBase {
+class SearchForm extends FormBase {
 
   /**
    * {@inheritdoc}
