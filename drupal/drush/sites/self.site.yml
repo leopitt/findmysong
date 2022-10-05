@@ -1,0 +1,13 @@
+#
+# A minimalist Drush site alias file.
+# See https://www.drush.org/latest/site-aliases/ for lots more documentation.
+#
+# File: self.site.yml
+live:
+  host: 212.48.70.7
+  user: admin
+  root: /var/www/findmysong/drupal
+  uri: http://admin.findmysong.function-designing.co.uk
+  env-vars:
+    PATH: /bin:/usr/bin:/home/www-admin/.composer/vendor/bin
+    DRUPAL_ENV: live
