@@ -3,4 +3,5 @@ logs
 drupal/vendor
 drupal/web/modules/contrib
 drupal/config/sync/lyric_lookup.config.yml
+drupal/config/sync/oauth2_client.credentials.spotify.yml
 .docksal/db
