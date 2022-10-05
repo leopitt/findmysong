@@ -2,5 +2,5 @@
 logs
 drupal/vendor
 drupal/web/modules/contrib
-drupal/config/lyric_lookup.config.yml
+drupal/config/sync/lyric_lookup.config.yml
 .docksal/db
