@@ -35,7 +35,6 @@
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
         "drupal/devel": "^4.2",
-        "drupal/http_client_manager": "^2.3",
         "drupal/oauth2_client": "^3.0",
         "drupal/restui": "^1.0",
         "drupal/upgrade_status": "^3.19",
