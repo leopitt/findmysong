@@ -22,6 +22,7 @@ use League\OAuth2\Client\Token\AccessToken;
  *   response_type = "code",
  *   show_dialog = "false",
  *   token_uri = "https://accounts.spotify.com/api/token",
+ *   success_message = TRUE
  * )
  */
 class Spotify extends Oauth2ClientPluginBase {
