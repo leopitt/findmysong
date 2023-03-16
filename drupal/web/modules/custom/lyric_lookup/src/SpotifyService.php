@@ -3,6 +3,7 @@
 namespace Drupal\lyric_lookup;
 
 use Drupal\Component\Utility\Html;
+use GuzzleHttp\Exception\ClientException;
 
 /**
  * Class SpotifyService.
@@ -74,20 +75,34 @@ class SpotifyService implements SpotifyServiceInterface {
           '@limit' => 1,
         ]
       );
-      $spotify_response = $spotify_client->get($query, [
-        'headers' => [
-          'Authorization' => 'Bearer ' . $this->accessToken->getToken(),
-          'Accept' => 'application/json',
-        ],
-      ]);
-      $spotify_data = $spotify_response->getBody();
-      $spotify_json = json_decode($spotify_data, TRUE);
 
-      // Check we've a result.
-      if (isset($spotify_json['tracks']['items'][0]['id'])) {
-        // Store in the cache and return.
-        \Drupal::cache('spotify')->set($cid, $spotify_json['tracks']['items'][0]['id'], strtotime('3 months'));
-        return $spotify_json['tracks']['items'][0]['id'];
+      // Make the request.
+      try {
+        $spotify_response = $spotify_client->get($query, [
+          'headers' => [
+            'Authorization' => 'Bearer ' . $this->accessToken->getToken(),
+            'Accept' => 'application/json',
+          ],
+        ]);
+
+        $spotify_data = $spotify_response->getBody();
+        $spotify_json = json_decode($spotify_data, TRUE);
+
+        // Check we've a result.
+        if (isset($spotify_json['tracks']['items'][0]['id'])) {
+          // Store in the cache and return.
+          \Drupal::cache('spotify')->set($cid, $spotify_json['tracks']['items'][0]['id'], strtotime('3 months'));
+          return $spotify_json['tracks']['items'][0]['id'];
+        }
+      }
+      catch (ClientException $e) {
+        \Drupal::logger('lyric_lookup')->notice(
+          'Authorisation error. Maybe we need to refresh the access token. Response: @response', [
+            '@response' => ClientException::getResponseBodySummary($e->getResponse()),
+          ]
+        );
+
+        \Drupal::service('oauth2_client.service')->getAccessToken('spotify');
       }
     }
 

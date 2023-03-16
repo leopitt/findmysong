@@ -44,17 +44,17 @@ class DefaultController extends ControllerBase {
 
       foreach ($track_list as $track_list_item) {
         $track = $track_list_item['track'];
-        $track_id = $track['track_id'];
         $track_name = $track['track_name'];
         $track_artist = $track['artist_name'];
-        $spotify_id = $track['spotify_id'];
+
+        if (isset($track['spotify_id'])) {
+          $spotify_id = $track['spotify_id'];
+        }
+        else {
+          $spotify_id = NULL;
+        }
 
         $rows[] = [$track_name, $track_artist, $spotify_id];
-
-        $output['tracks'][] = [
-          '#type' => 'markup',
-          '#markup' => '<pre> ' . print_r($track, TRUE) . '</pre>',
-        ];
       }
 
       $output['tracks'] = [

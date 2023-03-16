@@ -4,9 +4,3 @@ lyric_lookup.config_form:
   description: 'Lyric Lookup Configuration'
   parent: system.admin_config_system
   weight: 99
-lyric_lookup.config_form:
-  title: 'Lyric Lookup Configuration'
-  route_name: lyric_lookup.config_form
-  description: 'Settings for the Lyric Lookup module.'
-  parent: system.admin_config_system
-  weight: 99
