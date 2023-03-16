@@ -9,7 +9,6 @@ module:
   field: 0
   file: 0
   filter: 0
-  http_client_manager: 0
   lyric_lookup: 0
   mysql: 0
   node: 0
